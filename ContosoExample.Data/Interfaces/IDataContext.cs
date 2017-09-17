@@ -1,5 +1,7 @@
 ﻿using ContosoExample.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ContosoExample.Data.Interfaces
 {
@@ -7,6 +9,8 @@ namespace ContosoExample.Data.Interfaces
     {
         DbSet<TEntity> Set<TEntity>()
             where TEntity : class;
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
 
         DbSet<Customer> Customers { get; set; }
 
