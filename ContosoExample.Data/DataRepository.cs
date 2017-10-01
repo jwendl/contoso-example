@@ -24,7 +24,7 @@ namespace ContosoExample.Data
         public async Task<IEnumerable<TEntity>> FetchAllAsync() => await DataContext.Set<TEntity>()
             .ToListAsync();
 
-        public async Task<IEnumerable<TEntity>> FetchAllAsync(params Expression<Func<TEntity, bool>>[] includes)
+        public async Task<IEnumerable<TEntity>> FetchAllAsync(params Expression<Func<TEntity, BaseModel>>[] includes)
         {
             var query = DataContext.Set<TEntity>();
             includes.ToList().ForEach((include) => query.Include(include));
@@ -34,7 +34,7 @@ namespace ContosoExample.Data
         public async Task<TEntity> FetchOneAsync(int id) => await DataContext.Set<TEntity>()
             .FindAsync(id);
 
-        public async Task<TEntity> FetchOneAsync(int id, params Expression<Func<TEntity, bool>>[] includes)
+        public async Task<TEntity> FetchOneAsync(int id, params Expression<Func<TEntity, BaseModel>>[] includes)
         {
             var query = DataContext.Set<TEntity>();
             includes.ToList().ForEach((include) => query.Include(include));
@@ -44,7 +44,7 @@ namespace ContosoExample.Data
         public async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate) => await DataContext.Set<TEntity>()
             .Where(predicate).ToListAsync();
 
-        public async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, bool>>[] includes)
+        public async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, BaseModel>>[] includes)
         {
             var query = DataContext.Set<TEntity>();
             includes.ToList().ForEach((include) => query.Include(include));
