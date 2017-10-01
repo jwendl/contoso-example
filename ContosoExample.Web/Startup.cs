@@ -1,4 +1,6 @@
 ﻿using ContosoExample.Business.Bootstrap;
+using ContosoExample.Business.Interfaces;
+using ContosoExample.Business.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +21,8 @@ namespace ContosoExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddBusinessDependencies();
+
+            services.AddScoped<IOrderDashboardService, OrderDashboardService>();
 
             services.AddMvc();
         }

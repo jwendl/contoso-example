@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using ContosoExample.Business.Interfaces;
 using ContosoExample.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace ContosoExample.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController
+        : Controller
     {
-        public IActionResult Index()
+        readonly IOrderDashboardService orderDashboardService;
+
+        public HomeController(IOrderDashboardService orderDashboardService)
         {
-            return View();
+            this.orderDashboardService = orderDashboardService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var orderDashboard = await orderDashboardService.FetchOrderDashboardAsync();
+            return View(orderDashboard);
         }
 
         public IActionResult About()
