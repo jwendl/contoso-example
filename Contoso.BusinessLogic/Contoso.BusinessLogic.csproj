@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contoso.DataAccess.Cosmos\Contoso.DataAccess.Cosmos.csproj" />
+    <ProjectReference Include="..\Contoso.DataAccess.EntityFramework\Contoso.DataAccess.EntityFramework.csproj" />
+  </ItemGroup>
+
+</Project>
