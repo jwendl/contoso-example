@@ -1,8 +1,6 @@
 ﻿using Contoso.DataAccess.EntityFramework;
 using Contoso.DataAccess.EntityFramework.Bootstrapper;
 using Contoso.DataAccess.EntityFramework.Interfaces;
-using Contoso.DataAccess.EntityFramework.Models;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Contoso.BusinessLogic.Bootstrappers

@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using Contoso.BusinessLogic.Interfaces;
+﻿using Contoso.BusinessLogic.Interfaces;
 using Contoso.BusinessLogic.Models;
 using Contoso.DataAccess.Cosmos.Interfaces;
 using Contoso.DataAccess.Cosmos.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Contoso.BusinessLogic
@@ -12,19 +12,25 @@ namespace Contoso.BusinessLogic
         : ICustomerListService
     {
         private readonly IDataRepository<Customer, string> customerRepository;
-        private readonly IMapper mapper;
+        private readonly IDateTimeService dateTimeService;
 
-        public CustomerListService(IDataRepository<Customer, string> customerRepository, IMapper mapper)
+        public CustomerListService(IDataRepository<Customer, string> customerRepository, IDateTimeService dateTimeService)
         {
             this.customerRepository = customerRepository;
-            this.mapper = mapper;
+            this.dateTimeService = dateTimeService;
         }
 
         public async Task<IEnumerable<CustomerItem>> FetchAllCustomersAsync()
         {
             var customers = await customerRepository.FetchAllAsync();
-            var customerItems = mapper.Map<IEnumerable<Customer>, IEnumerable<CustomerItem>>(customers);
-            return customerItems;
+            return customers.Select(c => new CustomerItem()
+            {
+                Id = c.Id,
+                FirstName = c.FirstName,
+                LastName = c.LastName,
+                BirthDate = c.BirthDate,
+                Age = dateTimeService.YearsBetween(c.BirthDate, dateTimeService.BuildCurrentDateTime()),
+            });
         }
     }
 }

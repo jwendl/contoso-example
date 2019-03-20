@@ -1,0 +1,25 @@
+﻿@using Contoso.BusinessLogic.Models
+@model IEnumerable<CustomerItem>
+@{
+    ViewData["Title"] = "Customer List";
+}
+
+<h1>Customer List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>First Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customerItem in Model)
+        {
+            <tr>
+                <td>@customerItem.Id</td>
+                <td>@customerItem.FirstName</td>
+            </tr>
+        }
+    </tbody>
+</table>

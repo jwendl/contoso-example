@@ -11,5 +11,7 @@ namespace Contoso.BusinessLogic.Models
         public string LastName { get; set; }
 
         public DateTime BirthDate { get; set; }
+
+        public int Age { get; set; }
     }
 }

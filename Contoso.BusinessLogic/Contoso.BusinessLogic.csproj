@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="8.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Contoso.DataAccess.Cosmos\Contoso.DataAccess.Cosmos.csproj" />
     <ProjectReference Include="..\Contoso.DataAccess.EntityFramework\Contoso.DataAccess.EntityFramework.csproj" />
   </ItemGroup>

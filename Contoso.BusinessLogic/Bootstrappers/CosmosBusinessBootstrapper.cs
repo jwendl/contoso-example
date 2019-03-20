@@ -1,7 +1,6 @@
 ﻿using Contoso.DataAccess.Cosmos;
 using Contoso.DataAccess.Cosmos.Interfaces;
 using Contoso.DataAccess.Cosmos.Models;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 

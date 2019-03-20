@@ -28,6 +28,7 @@ namespace Contoso.DataAccess.EntityFramework
 
         public async Task<IEnumerable<TEntity>> FetchAllAsync(params Expression<Func<TEntity, object>>[] includes)
         {
+            Argument.IsNotNull(() => includes);
             var query = dataContext.Set<TEntity>().BuildIncludes(includes);
             return await query.ToListAsync();
         }
@@ -37,6 +38,7 @@ namespace Contoso.DataAccess.EntityFramework
 
         public async Task<TEntity> FetchOneAsync(TKey id, params Expression<Func<TEntity, object>>[] includes)
         {
+            Argument.IsNotNull(() => includes);
             var query = dataContext.Set<TEntity>().BuildIncludes(includes);
             return await query.Where(e => e.Id.Equals(id)).SingleOrDefaultAsync();
         }
@@ -46,6 +48,7 @@ namespace Contoso.DataAccess.EntityFramework
 
         public async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes)
         {
+            Argument.IsNotNull(() => includes);
             var query = dataContext.Set<TEntity>().BuildIncludes(includes);
             return await query.Where(predicate).ToListAsync();
         }
@@ -58,6 +61,7 @@ namespace Contoso.DataAccess.EntityFramework
 
         public async Task<TEntity> CreateAsync(TEntity entity)
         {
+            Argument.IsNotNull(() => entity);
             await dataContext.Set<TEntity>().AddAsync(entity);
             var validationContext = new ValidationContext(entity);
             Validator.ValidateObject(entity, validationContext, true);
@@ -67,6 +71,7 @@ namespace Contoso.DataAccess.EntityFramework
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
+            Argument.IsNotNull(() => entity);
             dataContext.Set<TEntity>().Update(entity);
             var validationContext = new ValidationContext(entity);
             Validator.ValidateObject(entity, validationContext, true);
@@ -76,6 +81,7 @@ namespace Contoso.DataAccess.EntityFramework
 
         public async Task DeleteAsync(TEntity entity)
         {
+            Argument.IsNotNull(() => entity);
             dataContext.Set<TEntity>().Remove(entity);
             await dataContext.SaveChangesAsync();
         }

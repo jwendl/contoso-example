@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Contoso.BusinessLogic.Bootstrappers.Profiles;
+﻿using Contoso.BusinessLogic.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Contoso.BusinessLogic.Bootstrappers
@@ -8,11 +7,8 @@ namespace Contoso.BusinessLogic.Bootstrappers
     {
         public static void AddDependencies(IServiceCollection serviceCollection)
         {
-            var mapperConfiguration = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile(new CustomerProfile());
-            });
-            serviceCollection.AddSingleton(sp => mapperConfiguration.CreateMapper());
+            serviceCollection.AddScoped<IDateTimeService, DateTimeService>();
+            serviceCollection.AddScoped<ICustomerListService, CustomerListService>();
         }
     }
 }

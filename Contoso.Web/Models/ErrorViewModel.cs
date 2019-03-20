@@ -1,5 +1,3 @@
-using System;
-
 namespace Contoso.Web.Models
 {
     public class ErrorViewModel

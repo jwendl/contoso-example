@@ -36,6 +36,8 @@ namespace Contoso.DataAccess.Cosmos
 
         public async Task<TModel> CreateItemAsync(TKey partitionKey, TModel model)
         {
+            Argument.IsNotNull(() => partitionKey);
+            Argument.IsNotNull(() => model);
             var cosmosItemResponse = await cosmosClientWrapper.Items.CreateItemAsync(partitionKey, model);
             return cosmosItemResponse.Resource;
         }
