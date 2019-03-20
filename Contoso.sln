@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.Example", "Contoso.Example\Contoso.Example.csproj", "{4FC62D09-DFA5-49BC-9931-55C3AA6F48ED}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.DataAccess.Cosmos", "Contoso.DataAccess.Cosmos\Contoso.DataAccess.Cosmos.csproj", "{5F28792C-DD30-4F4F-91FC-81BD9DB84905}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.BusinessLogic", "Contoso.BusinessLogic\Contoso.BusinessLogic.csproj", "{6655296C-E099-4DAA-9819-E45C4DB1CDFC}"
@@ -15,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.BusinessLogic.UnitTests", "UnitTests\Contoso.BusinessLogic.UnitTests\Contoso.BusinessLogic.UnitTests.csproj", "{71D889E5-79EE-4ED0-912C-4596808C15BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.DataAccess.EntityFramework", "Contoso.DataAccess.EntityFramework\Contoso.DataAccess.EntityFramework.csproj", "{316DD0D7-5B6A-4C11-9B8B-B759652BCEBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.DataAccess.EntityFramework", "Contoso.DataAccess.EntityFramework\Contoso.DataAccess.EntityFramework.csproj", "{316DD0D7-5B6A-4C11-9B8B-B759652BCEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Web", "Contoso.Web\Contoso.Web.csproj", "{E3D868AB-61E8-4BD6-9EC4-6BD7B2F57B35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FC62D09-DFA5-49BC-9931-55C3AA6F48ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FC62D09-DFA5-49BC-9931-55C3AA6F48ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FC62D09-DFA5-49BC-9931-55C3AA6F48ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FC62D09-DFA5-49BC-9931-55C3AA6F48ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F28792C-DD30-4F4F-91FC-81BD9DB84905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F28792C-DD30-4F4F-91FC-81BD9DB84905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F28792C-DD30-4F4F-91FC-81BD9DB84905}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +43,10 @@ Global
 		{316DD0D7-5B6A-4C11-9B8B-B759652BCEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{316DD0D7-5B6A-4C11-9B8B-B759652BCEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{316DD0D7-5B6A-4C11-9B8B-B759652BCEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3D868AB-61E8-4BD6-9EC4-6BD7B2F57B35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D868AB-61E8-4BD6-9EC4-6BD7B2F57B35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D868AB-61E8-4BD6-9EC4-6BD7B2F57B35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D868AB-61E8-4BD6-9EC4-6BD7B2F57B35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

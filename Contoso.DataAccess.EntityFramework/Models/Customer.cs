@@ -3,9 +3,8 @@
 namespace Contoso.DataAccess.EntityFramework.Models
 {
     public class Customer
+        : BaseModel<int>
     {
-        public int Id { get; set; }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
