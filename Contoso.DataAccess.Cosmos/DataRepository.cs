@@ -16,10 +16,10 @@ namespace Contoso.DataAccess.Cosmos
             this.cosmosClientWrapper = cosmosClientWrapper;
         }
 
-        public async Task<IEnumerable<TModel>> FetchAllAsync(TKey partitionKey)
+        public async Task<IEnumerable<TModel>> FetchAllAsync()
         {
             var cosmosSqlQueryDefinition = new CosmosSqlQueryDefinition($"select * from {typeof(TModel).Name}");
-            var queryResultSetIterator = cosmosClientWrapper.Items.CreateItemQuery<TModel>(cosmosSqlQueryDefinition, partitionKey);
+            var queryResultSetIterator = cosmosClientWrapper.Items.CreateItemQuery<TModel>(cosmosSqlQueryDefinition, 10);
 
             var items = new List<TModel>();
             while (queryResultSetIterator.HasMoreResults)

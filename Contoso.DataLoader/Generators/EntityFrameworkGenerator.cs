@@ -32,8 +32,8 @@ namespace Contoso.DataLoader.Generators
             serviceCollection.AddScoped<IDataContext, DataContext>();
             serviceCollection.AddScoped(typeof(IDataRepository<,>), typeof(DataRepository<,>));
             serviceCollection.Configure<EntityFrameworkOptions>(options => configurationRoot.GetSection("entityFramework").Bind(options));
-
             var serviceProvider = serviceCollection.BuildServiceProvider();
+
             var dataContext = serviceProvider.GetRequiredService<IDataContext>();
             await (dataContext as DbContext).Database.EnsureCreatedAsync();
 
